@@ -1,0 +1,7 @@
+streamlit
+paddleocr>=2.6.0
+paddlepaddle
+opencv-python-headless
+rapidfuzz
+numpy
+Pillow
