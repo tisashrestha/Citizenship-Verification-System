@@ -1,7 +1,13 @@
-streamlit
-paddleocr>=2.6.0
-paddlepaddle
-opencv-python-headless
-rapidfuzz
-numpy
-Pillow
+--extra-index-url https://download.pytorch.org/whl/cpu
+
+numpy==1.26.4
+opencv-python==4.11.0.86
+paddleocr==2.8.1
+paddlepaddle==2.6.2
+PyYAML==6.0.2
+RapidFuzz==3.14.5
+streamlit==1.58.0
+torch==2.12.1+cpu
+torchvision==0.27.1+cpu
+ultralytics==8.4.89
+ultralytics-thop==2.0.20
