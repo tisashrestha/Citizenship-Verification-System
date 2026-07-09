@@ -76,22 +76,22 @@ def parse_text(text):
                 break
 
     # ---------------- 3. Addresses ----------------
-    addr_keys = ["WARD", "DISTRICT", "DINTRICT", "METROPOLITAN", "MUNICIPALITY", "PROVINCE", "LALITPUR", "KATHMANDU", "DHARAN"]
-    addr_lines = [l for l in lines if any(k in l.upper() for k in addr_keys)]
+    # addr_keys = ["WARD", "DISTRICT", "DINTRICT", "METROPOLITAN", "MUNICIPALITY", "PROVINCE", "LALITPUR", "KATHMANDU", "DHARAN"]
+    # addr_lines = [l for l in lines if any(k in l.upper() for k in addr_keys)]
     
-    birth_idx = re.search(r'B[irn]{2,3}th?\s*P[l1]ace', flat_text, re.I)
-    perm_idx = re.search(r'Perm[an]{2,4}ent', flat_text, re.I)
+    # birth_idx = re.search(r'B[irn]{2,3}th?\s*P[l1]ace', flat_text, re.I)
+    # perm_idx = re.search(r'Perm[an]{2,4}ent', flat_text, re.I)
     
-    if addr_lines:
-        b_pos = birth_idx.start() if birth_idx else 0
-        p_pos = perm_idx.start() if perm_idx else 9999
+    # if addr_lines:
+    #     b_pos = birth_idx.start() if birth_idx else 0
+    #     p_pos = perm_idx.start() if perm_idx else 9999
         
-        mid = len(addr_lines) // 2
-        if b_pos < p_pos:
-            data["birth_place"] = " ".join(addr_lines[:mid])
-            data["permanent_address"] = " ".join(addr_lines[mid:])
-        else:
-            data["permanent_address"] = " ".join(addr_lines[:mid])
-            data["birth_place"] = " ".join(addr_lines[mid:])
+    #     mid = len(addr_lines) // 2
+    #     if b_pos < p_pos:
+    #         data["birth_place"] = " ".join(addr_lines[:mid])
+    #         data["permanent_address"] = " ".join(addr_lines[mid:])
+    #     else:
+    #         data["permanent_address"] = " ".join(addr_lines[:mid])
+    #         data["birth_place"] = " ".join(addr_lines[mid:])
 
     return data

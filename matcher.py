@@ -31,21 +31,21 @@ def match_data(user, ocr):
 
     # 5. Address Match (The Pool Strategy)
     # Combine everything extracted into one pool to check against user input
-    ocr_pool = f"{ocr.get('birth_place') or ''} {ocr.get('permanent_address') or ''}".upper()
+    # ocr_pool = f"{ocr.get('birth_place') or ''} {ocr.get('permanent_address') or ''}".upper()
     
-    u_birth = str(user.get("birth_place") or "").upper()
-    u_perm = str(user.get("permanent_address") or "").upper()
+    # u_birth = str(user.get("birth_place") or "").upper()
+    # u_perm = str(user.get("permanent_address") or "").upper()
     
-    birth_score = fuzz.token_set_ratio(u_birth, ocr_pool)
-    addr_score = fuzz.token_set_ratio(u_perm, ocr_pool)
+    # birth_score = fuzz.token_set_ratio(u_birth, ocr_pool)
+    # addr_score = fuzz.token_set_ratio(u_perm, ocr_pool)
 
     # 6. Final Result Object
     result = {
         "name_score": round(name_score, 2),
         "citizenship_match": bool(cid_match),
         "dob_match": bool(dob_match),
-        "birth_place_score": round(birth_score, 2),
-        "address_score": round(addr_score, 2)
+        # "birth_place_score": round(birth_score, 2),
+        # "address_score": round(addr_score, 2)
     }
 
     # ---------------- VERIFICATION LOGIC ----------------
@@ -55,7 +55,7 @@ def match_data(user, ocr):
     # - One other piece of evidence (DOB match OR Address found in pool)
     
     if cid_match and name_score >= 80:
-        if dob_match or (birth_score >= 70 and addr_score >= 70):
+        if dob_match:
             result["status"] = "VERIFIED"
         else:
             result["status"] = "NOT VERIFIED (Details Mismatch)"
