@@ -2,7 +2,7 @@ from ultralytics import YOLO
 import os
 
 # Update this path to where your file actually is
-model_path = "weights/best.pt" 
+model_path = "weights/bestmodel.pt" 
 
 if os.path.exists(model_path):
     try:
