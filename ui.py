@@ -10,9 +10,9 @@ from extract import extract_text
 from parser import parse_text
 from matcher import match_data
 
-st.set_page_config(page_title="Advanced Citizenship Verification", layout="wide")
+st.set_page_config(page_title="Citizenship Verification", layout="wide")
 
-st.title("Advanced Citizenship Verification System")
+st.title("Citizenship Verification System")
 st.write("Upload both sides of the citizenship card for full data & visual verification")
 
 # side bar col
